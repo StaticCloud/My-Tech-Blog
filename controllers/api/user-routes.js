@@ -2,7 +2,7 @@
 const router = require('express').Router();
 
 // import models
-const { User } = require('../../models')
+const { User, Comment, Post } = require('../../models')
 
 router.get('/', async (req, res) => {
     // try/catch block
@@ -22,7 +22,23 @@ router.get('/', async (req, res) => {
 // get by id or primary key
 router.get('/:id', async (req, res) => {
     try {
-        const user = await User.findByPk(req.params.id);
+        const user = await User.findByPk(req.params.id,
+            {
+                attributes: { exclude: ['password'] },
+                include: [
+                    {
+                        model: Comment,
+                        attributes: ['text'],
+                        include: [
+                            {
+                                model: Post,
+                                attributes: ['title']
+                            }
+                        ]
+                    }
+                ]
+            }
+        );
 
         // return client error message
         if (!user) {
