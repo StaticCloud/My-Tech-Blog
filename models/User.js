@@ -6,6 +6,7 @@ class User extends Model {};
 
 // init model, which is a table in our database
 User.init(
+    // remind me to never use 'allowNull: false' when defining a foreign key column
     {
         id: {
             type: DataTypes.INTEGER,
@@ -21,7 +22,7 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [4]
+                len: [7]
             }
         },
         email: {
@@ -37,6 +38,7 @@ User.init(
         hooks: {
             async beforeCreate(userData) {
                 userData.password = await bcrypt.hash(userData.password, 10);
+                return userData;
             }
         },
         // include the sequelize connection (mandatory)
@@ -45,6 +47,8 @@ User.init(
         timestamps: false,
         // convert camelCase columns to underscored
         underscored: true,
+        // pluralize table name
+        freezeTableName: true,
         // name of model
         modelName: 'user'
     }

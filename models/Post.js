@@ -18,7 +18,7 @@ Post.init(
         },
         // text content of post, must be at least 100 characters
         content: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [100]
@@ -27,7 +27,6 @@ Post.init(
         // reference user model through it's id
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'

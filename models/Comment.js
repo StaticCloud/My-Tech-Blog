@@ -12,7 +12,7 @@ Comment.init(
             autoIncrement: true
         },
         text: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [10]
@@ -21,7 +21,6 @@ Comment.init(
         // establish user relationship via id
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'
@@ -30,7 +29,6 @@ Comment.init(
         // establish post relationship via id
         post_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
                 model: 'post',
                 key: 'id'
