@@ -1,13 +1,19 @@
 // create express router for handling endpoints
 const router = require('express').Router();
 
-const { Post } = require('../models');
+const { Post, User } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
         let posts = await Post.findAll(
             {
-                attributes: ['title', 'content']
+                attributes: ['title', 'content'],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['username']
+                    }
+                ]
             }
         )
         
