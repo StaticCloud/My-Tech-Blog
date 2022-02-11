@@ -10,6 +10,8 @@ const routes = require('./controllers');
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create();
 
+const path = require('path');
+
 // create new express app
 const app = express();
 
@@ -19,6 +21,7 @@ const PORT = process.env.PORT || 3001;
 // returns middleware that parses json
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
