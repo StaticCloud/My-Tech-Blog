@@ -74,11 +74,15 @@ label > h3, button {
     padding: 5px 0;
 } 
 
-.login {
+.login, .logout {
     padding: 15px 25px;
     border-radius: 6px;
     border-bottom: 3px solid rgb(53, 55, 182);
     background-color: rgb(26, 26, 26);
+}
+
+.logout {
+    border-color: rgb(204, 29, 29);
 }
 
 .input-wrapper {

@@ -65,13 +65,48 @@ router.post('/', async (req, res) => {
             }
         )
 
-        res.status(200).json(user);
+        // save the new user to the session
+        req.session.save(() => {
+            req.session.user_id = user.id;
+            req.session.username = user.username;
+            req.session.loggedIn = true;
+
+            res.status(200).json(user);
+        })
     } catch (err) {
         // return client error message
         console.log(err);
         res.status(400).json(err);
     }
 });
+
+router.post('/login', async (req, res) => {
+    const user = await User.findOne(
+        {
+            where: {
+                email: req.body.email
+            }
+        }
+    )
+
+    // if there was no user with that email, alert the client and return
+    if (!user) { res.status(400).json({ message: 'No user with that email address!' }); return; }
+
+    // check if the password was valid
+    const isValidPw = user.checkPassword(req.body.password);
+
+    // if the password was not valid, alert the client and return
+    if (!isValidPw) { res.status(400).json({ message: 'Incorrect password!' }); return; }
+
+    // save the user to the session
+    req.session.save(() => {
+        req.session.user_id = user.id;
+        req.session.username = user.username;
+        req.session.loggedIn = true;
+
+        res.status(200).json({ user: user, message: 'Login successful!'});
+    })
+})
 
 router.put('/:id', async (req, res) => {
     try {

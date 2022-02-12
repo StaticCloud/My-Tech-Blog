@@ -13,11 +13,18 @@
             <nav>
                 <a href="/">Home</a>
                 <p>Dashboard</p>
+                {{#if loggedIn}}
                 <a href="/login" class="login">Login</a>
+                {{else}}
+                <a class="logout">Logout</a>
+                {{/if}}
             </nav>
         </header>
         <main>
             {{{ body }}}
         </main>
+        {{#if loggedIn}}
+        <script type="/javascript/logout.js"></script>
+        {{/if}}
     </body>
 </html>
