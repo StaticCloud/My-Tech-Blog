@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
         
         posts = posts.map(post => post.get({ plain: true }));
 
-        res.render('homepage', { posts });
+        res.render('homepage', { posts, loggedIn: req.session.loggedIn });
         
     } catch (err) {
         // server error
@@ -30,8 +30,8 @@ router.get('/', async (req, res) => {
 })
 
 // login route
-router.get('/login', async (req, res) => {
-    (req.session.loggedIn) ? res.redirect('/') : null;
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) { res.redirect('/'); return; }
 
     res.render('login');
 })
