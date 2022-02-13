@@ -1,9 +1,10 @@
 // create express router for handling endpoints
 const router = require('express').Router();
+const auth = require('../helpers/auth');
 
 const { Post, Comment, User } = require('../models');
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
     try {
         const posts = await Post.findAll(
             {
@@ -21,7 +22,7 @@ router.get('/', async (req, res) => {
                 ]
             }
         )
-        res.render('dashboard', { posts });
+        res.render('dashboard', { posts, loggedIn: true });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
