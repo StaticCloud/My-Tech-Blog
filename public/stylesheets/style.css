@@ -95,7 +95,7 @@ textarea {
     justify-content: center;
 }
 
-.login-form, .new-post-wrapper {
+.login-form, .new-post-wrapper, .post-info-dash {
     border-left: 4px solid rgb(0, 0, 0);
 }
 
@@ -112,4 +112,17 @@ textarea {
 .new-post-wrapper {
     margin: 0 auto;
     width: 60%;
+}
+
+.post-info-dash {
+    padding-left: 15px;
+    margin: 20px 0;
+}
+
+.post-options {
+    display: flex;
+}
+
+.post-options > button {
+    margin-right: 10px;
 }

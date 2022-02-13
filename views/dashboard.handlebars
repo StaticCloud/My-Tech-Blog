@@ -4,11 +4,13 @@
         <h4>Logged in as <i>{{username}}</i></h4>
         <button type="click"><a href="dashboard/create">Create New Post</a></button>
     </div>
+    {{#if posts.length}}
     <ul>
         {{#each posts as |post|}}
         <li>
-            {{> post-info post}}
+            {{> post-info-dash post}}
         </li>
         {{/each}}
     </ul>
+    {{/if}}
 </div>
