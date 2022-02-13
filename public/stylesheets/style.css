@@ -42,7 +42,7 @@ form {
     margin: 40px;
 }
 
-form > button {
+form > button, button {
     border: none;
 
     border-radius: 5px;
@@ -52,8 +52,12 @@ form > button {
     background-color: black;
 }
 
-label > h3, button {
+label > h3, button, .upper-dashboard > h4 {
     margin-top: 20px;
+}
+
+textarea {
+    resize: none;
 }
 
 .post {
@@ -91,6 +95,21 @@ label > h3, button {
     justify-content: center;
 }
 
-.login-form {
+.login-form, .new-post-wrapper {
     border-left: 4px solid rgb(0, 0, 0);
+}
+
+.dashboard-wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.upper-dashboard {
+    padding: 20px 0;
+    border-bottom: 2px solid black;
+}
+
+.new-post-wrapper {
+    margin: 0 auto;
+    width: 60%;
 }
