@@ -63,8 +63,7 @@ router.post('/', async (req, res) => {
             {
                 title: req.body.title,
                 content: req.body.content,
-                // development purposes
-                user_id: req.body.user_id
+                user_id: req.session.user_id
             }
         )
 
