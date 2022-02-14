@@ -148,7 +148,7 @@ textarea {
 }
 
 .comment, .comments > p {
-    margin: 15px 0;
+    margin: 15px 0 0 0;
 }
 
 .update-post-form {

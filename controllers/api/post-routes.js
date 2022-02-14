@@ -102,7 +102,7 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const response = await User.destroy(
+        const response = await Post.destroy(
             {
                 where: { 
                     id: req.params.id 
