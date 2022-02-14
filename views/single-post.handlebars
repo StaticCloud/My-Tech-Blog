@@ -1,0 +1,16 @@
+<div class="single-post">
+    {{> post-info-single post}}
+</div>
+<div class="comments-section">
+    <form class="comment-form">
+        <h4>Comments:</h4>
+        {{#if loggedIn}}
+        <label for="comment"><h3>Leave a comment:</h3></label>
+        <textarea id="comment" rows="10" cols="50"></textarea>
+
+        <button type="submit" class="post-comment">Comment</button>
+        {{else}}
+        <h4>Log in to leave a comment.</h4>
+        {{/if}}
+    </form>
+</div>

@@ -126,3 +126,8 @@ textarea {
 .post-options > button {
     margin-right: 10px;
 }
+
+.comments-section {
+    margin: 0 auto;
+    width: 90%;
+}
