@@ -2,8 +2,17 @@
     {{> post-info-single post}}
 </div>
 <div class="comments-section">
-    <form class="comment-form">
+    <div class="comments">
         <h4>Comments:</h4>
+        {{#if post.comments.length}}
+            {{#each post.comments as |comment|}}
+            {{> comment comment}}
+            {{/each}}
+        {{else}}
+        <p>No comments yet. Be the first to post!</p>
+        {{/if}}
+    </div>
+    <form class="comment-form">
         {{#if loggedIn}}
         <label for="comment"><h3>Leave a comment:</h3></label>
         <textarea id="comment" rows="10" cols="50"></textarea>
@@ -14,3 +23,4 @@
         {{/if}}
     </form>
 </div>
+<script src="/javascript/comment.js"></script>

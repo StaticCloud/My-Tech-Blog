@@ -127,7 +127,18 @@ textarea {
     margin-right: 10px;
 }
 
-.comments-section {
+.comments-section, .comments {
     margin: 0 auto;
-    width: 90%;
+    width: 89%;
+}
+
+.comments {
+    margin-top: 20px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.comment, .comments > p {
+    margin: 15px 0;
 }
