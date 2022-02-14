@@ -70,6 +70,14 @@ textarea {
     border-left: 4px solid;
 }
 
+.edit-post > h1 {
+    width: 80%;
+    margin: 0 auto;
+
+    padding: 0 20px 0 20px;
+    margin-top: 30px;
+}
+
 .heading {
     padding: 10px 0;
 }
@@ -141,4 +149,9 @@ textarea {
 
 .comment, .comments > p {
     margin: 15px 0;
+}
+
+.update-post-form {
+    margin: 0;
+    padding-left: 0px;
 }
