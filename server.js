@@ -30,7 +30,12 @@ const PORT = process.env.PORT || 3001;
 // session options
 const sess = {
     secret: process.env.SESS_KEY,
-    cookie: {},
+    cookie: {
+        // delete the cookie after 30 minutes
+        expires: true,
+        maxAge: 30000 * 60
+    },
+    rolling: true,
     resave: false,
     saveUninitialized: true,
     // where to store our session
