@@ -44,13 +44,23 @@ router.get('/edit/:id', auth, async (req, res) => {
     try {
         let post = await Post.findByPk(req.params.id,
             {
-                attributes: ['id', 'title', 'content']
+                attributes: ['id', 'title', 'content', 'user_id'],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['id', 'username']
+                    }
+                ]
             }
         )
 
-        post = post.get({ plain: true });
+        if (post.user_id === req.session.user_id) {
+            post = post.get({ plain: true });
 
-        res.render('edit-post', { post, loggedIn: true });
+            res.render('edit-post', { post, loggedIn: true });
+        } else {
+            res.render('bad-request', { loggedIn: true });
+        }
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

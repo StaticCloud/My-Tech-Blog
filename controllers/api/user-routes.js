@@ -60,7 +60,6 @@ router.post('/', async (req, res) => {
         const user = await User.create(
             {
                 username: req.body.username,
-                email: req.body.email,
                 password: req.body.password
             }
         )
@@ -84,7 +83,7 @@ router.post('/login', async (req, res) => {
     const user = await User.findOne(
         {
             where: {
-                email: req.body.email
+                username: req.body.username
             }
         }
     )
