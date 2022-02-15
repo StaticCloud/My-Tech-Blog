@@ -7,8 +7,11 @@ const sequelize = require('./config/connection');
 // import routes
 const routes = require('./controllers');
 
+// get helper functions to use in handlebar files
+const helpers = require('./helpers/date');
+
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create();
+const hbs = exphbs.create({ helpers });
 
 const path = require('path');
 

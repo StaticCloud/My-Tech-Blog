@@ -155,3 +155,10 @@ textarea {
     margin: 0;
     padding-left: 0px;
 }
+
+.new-post-form > i,
+.comment-form > i {
+    margin-top: 10px;
+    color: rgb(83, 83, 83);
+    display: flex;
+}

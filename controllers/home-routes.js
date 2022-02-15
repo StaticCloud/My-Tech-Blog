@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     try {
         let posts = await Post.findAll(
             {
-                attributes: ['id', 'title', 'content'],
+                attributes: ['id', 'title', 'content', 'created_at'],
                 include: [
                     {
                         model: User,
@@ -33,7 +33,7 @@ router.get('/posts/:id', async (req, res) => {
     try {
         let post = await Post.findByPk(req.params.id,
             {
-                attributes: ['id', 'title', 'content'],
+                attributes: ['id', 'title', 'content', 'created_at'],
                 order: [['created_at', 'DESC']],
                 include: [
                     {
@@ -42,7 +42,7 @@ router.get('/posts/:id', async (req, res) => {
                     },
                     {
                         model: Comment,
-                        attributes: ['text'],
+                        attributes: ['text', 'created_at'],
                         include: [
                             {
                                 model: User,
