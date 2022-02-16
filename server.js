@@ -35,6 +35,7 @@ const sess = {
         expires: true,
         maxAge: 30000 * 60
     },
+    // reset maxAge counter for every request
     rolling: true,
     resave: false,
     saveUninitialized: true,

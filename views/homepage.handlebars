@@ -1,7 +1,11 @@
 <ul>
-    {{#each posts as |post|}}
-    <li>
-        {{> post-info post}}
-    </li>
-    {{/each}}
+    {{#if posts.length}}
+        {{#each posts as |post|}}
+        <li>
+            {{> post-info post}}
+        </li>
+        {{/each}}
+    {{else}}
+        <i class="homepage-i">No posts yet.</i>
+    {{/if}}
 </ul>

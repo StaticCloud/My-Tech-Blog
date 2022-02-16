@@ -1,6 +1,7 @@
 editPost = async event => {
     event.preventDefault();
 
+    const title = document.querySelector('#title').value.trim();
     const content = document.querySelector('#content').value.trim();
 
     // get the id of the post
@@ -10,6 +11,7 @@ editPost = async event => {
         method: 'PUT',
         body: JSON.stringify(
             {
+                title,
                 content
             }
         ),
