@@ -28,3 +28,8 @@ Here's an overview of the app!
 <img src="./images/AuthOverview.png"/.>
 </details>
 
+<details>
+<summary>Dashboard</summary>
+<img src="./images/DashboardOverview.png"/.>
+</details>
+
