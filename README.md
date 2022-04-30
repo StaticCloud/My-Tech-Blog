@@ -17,3 +17,8 @@ Here's an overview of the app!
 <summary>Home and Nav</summary>
 <img src="./images/MTBHome.png"/.>
 </details>
+
+<details>
+<summary>Single Post</summary>
+<img src="./images/MTBSinglePost.png"/.>
+</details>
