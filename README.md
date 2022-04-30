@@ -8,3 +8,12 @@ A simple blog website where developers may discuss and share their thoughts on a
 ## Links
 
 [Deployed App](https://limitless-river-31622.herokuapp.com/)
+
+## Overview
+
+Here's an overview of the app!
+
+<details>
+<summary>Home and Nav</summary>
+<img src="./images/MTBHome.png"/.>
+</details>
