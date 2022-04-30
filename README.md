@@ -22,3 +22,9 @@ Here's an overview of the app!
 <summary>Single Post</summary>
 <img src="./images/MTBSinglePost.png"/.>
 </details>
+
+<details>
+<summary>Auth</summary>
+<img src="./images/AuthOverview.png"/.>
+</details>
+
